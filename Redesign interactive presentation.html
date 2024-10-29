@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du Récit à l'Action</title>
+    <style>
+        :root {
+            --primary-color: #73B53E;
+            --secondary-color: #4a4a4a;
+            --text-color: #333;
+            --background-color: #f5f5f5;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-color);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .header-title {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .slides-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .slide {
+            display: none;
+            min-height: 70vh;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .card h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .card li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .card li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .card blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            margin: 1.5rem 0;
+            padding: 1rem;
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            width: 60%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 14.28%; /* 100% / 7 slides */
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        button {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #5a8f31;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 1rem;
+            }
+            
+            .card h1 {
+                font-size: 2rem;
+            }
+            
+            .card h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="OX_OFR_VL_vert_RGB.jpg" alt="Logo Oxfam">
+        <h1 class="header-title">Du Récit à l'Action</h1>
+    </header>
+
+    <div class="slides-container">
+        <div class="slide active" id="slide1">
+            <div class="card">
+                <h1>Du Récit à l'Action</h1>
+                <h2>Comprendre et Agir sur nos Territoires</h2>
+                <blockquote>"La compréhension est le premier pas vers l'action"</blockquote>
+                <ul>
+                    <li>Durée : 55 minutes</li>
+                    <li>L'histoire de Marie et Thomas</li>
+                    <li>Vos réflexions</li>
+                    <li>Des pistes pour agir</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide" id="slide2">
+            <div class="card">
+                <h2>Introduction</h2>
+                <ul>
+                    <li>Objectif : Comprendre pour mieux agir</li>
+                    <li>Une démarche participative</li>
+                    <li>Un cadre bienveillant</li>
+                    <li>Des échanges constructifs</li>
+                    <li>Une orientation vers l'action</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide" id="slide3">
+            <div class="card">
+                <h2>Le Récit comme Miroir</h2>
+                <ul>
+                    <li>L'histoire de Marie et Thomas</li>
+                    <li>Une trajectoire de vie</li>
+                    <li>Des choix contraints</li>
+                    <li>Un isolement progressif</li>
+                    <li>Une transformation silencieuse</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide" id="slide4">
+            <div class="card">
+                <h2>Les Mécanismes à l'Œuvre</h2>
+                <ul>
+                    <li>Au niveau spatial</li>
+                    <li>Au niveau social</li>
+                    <li>Au niveau médiatique</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide" id="slide5">
+            <div class="card">
+                <h2>Notre Rôle dans l'Histoire</h2>
+                <ul>
+                    <li>Nos propres mécanismes d'évitement</li>
+                    <li>Nos territoires désertés</li>
+                    <li>Nos occasions manquées de créer du lien</li>
+                    <li>Partager nos prises de conscience</li>
+                    <li>Proposer des solutions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide" id="slide6">
+            <div class="card">
+                <h2>Réécrire l'Histoire</h2>
+                <ul>
+                    <li>Comment l'histoire de Marie et Thomas pourrait se terminer autrement ?</li>
+                    <li>Actions concrètes sur le territoire</li>
+                    <li>Engagements individuels</li>
+                    <li>Ce que l'on peut faire au niveau du groupe local</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide" id="slide7">
+            <div class="card">
+                <h2>Conclusion</h2>
+                <blockquote>"Chaque action compte dans la construction d'une société plus inclusive"</blockquote>
+                <ul>
+                    <li>Tour d'engagement</li>
+                    <li>Prochaines étapes</li>
+                    <li>Constitution du groupe de travail</li>
+                    <li>Actions au sein du GL</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navigation">
+        <button onclick="previousSlide()">←</button>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <button onclick="nextSlide()">→</button>
+    </nav>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+
+        function updateProgress() {
+            const progress = document.querySelector('.progress');
+            progress.style.width = `${(currentSlide / totalSlides) * 100}%`;
+        }
+
+        function showSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById(`slide${slideNumber}`).classList.add('active');
+            updateProgress();
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+    </script>
+</body>
+</html>
